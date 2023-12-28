@@ -5,10 +5,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TodoList.Helpers;
 
 namespace TodoList.Models
 {
-    public class TodoModel : INotifyPropertyChanged
+    public class TodoModel : CommandNotifier
     {
 		private string _title;
 
@@ -23,8 +24,6 @@ namespace TodoList.Models
 
 		private bool _isDone;
 
-        
-
         public bool IsDone
 		{
 			get { return _isDone; }
@@ -32,11 +31,6 @@ namespace TodoList.Models
 				OnPropertyChange(nameof(IsDone));
 			}
 		}
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+     
     }
 }

@@ -11,7 +11,7 @@ using TodoList.Models;
 
 namespace TodoList.ViewModels
 {
-    public class TodoViewModel : INotifyPropertyChanged
+    public class TodoViewModel : CommandNotifier
     {
         public string Title { get { return $"Todo {TodoModelList.Count(s => !s.IsDone)} Completed: {TodoModelList.Count(s=>s.IsDone)}"; } }
 		private ObservableCollection<TodoModel> _todoModelList =new ObservableCollection<TodoModel>();
@@ -34,16 +34,10 @@ namespace TodoList.ViewModels
             
 		}
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         public ICommand AddCommand { get; set; }
 
-        internal void AddTodo()
+        internal void AddTodo(object? param)
         {
             if (string.IsNullOrEmpty(Newtodo)) return;
 
@@ -64,7 +58,7 @@ namespace TodoList.ViewModels
 
         public TodoViewModel()
         {
-            AddCommand = new AddCommand(this);
+            AddCommand = new GenericCommand(AddTodo);
             //TodoModelList.Add(new TodoModel() { IsDone = false, Title = "first title" });
             //TodoModelList.Add(new TodoModel() { IsDone = true, Title = "Second title" });
         }
