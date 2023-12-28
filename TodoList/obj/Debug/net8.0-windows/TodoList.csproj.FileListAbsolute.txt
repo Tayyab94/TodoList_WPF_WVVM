@@ -21,3 +21,4 @@ C:\Users\tayya\Desktop\TodoList\TodoList\obj\Debug\net8.0-windows\refint\TodoLis
 C:\Users\tayya\Desktop\TodoList\TodoList\obj\Debug\net8.0-windows\TodoList.pdb
 C:\Users\tayya\Desktop\TodoList\TodoList\obj\Debug\net8.0-windows\TodoList.genruntimeconfig.cache
 C:\Users\tayya\Desktop\TodoList\TodoList\obj\Debug\net8.0-windows\ref\TodoList.dll
+C:\Users\tayya\Desktop\TodoList\TodoList\obj\Debug\net8.0-windows\TodoList.sourcelink.json
